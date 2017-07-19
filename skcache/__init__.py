@@ -1,7 +1,10 @@
 import types
+import os.path
+
 import sklearn.externals.joblib
 
-default_memory = sklearn.externals.joblib.Memory(cachedir = 'cache')
+DEFAULT_DIR = os.path.join(os.path.expanduser('~'), '.skcache')
+default_memory = sklearn.externals.joblib.Memory(cachedir = DEFAULT_DIR)
 
 def return_self_from_bound(f):
     def f_return_self(*args, **kwargs):
